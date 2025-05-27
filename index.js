@@ -9,10 +9,10 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 
 // TEST-camille
 
-const cities = require('/cities/cities.js'); 
-const associations = require('/associations/associations.js');
-const volunteers = require('/volunteers/volunteers.js');
-const wasteTypes = require('/waste/waste.js')
+const cities = require('./cities/cities.js'); 
+const associations = require('./associations/associations.js');
+const volunteers = require('./volunteers/volunteers.js');
+const wasteTypes = require('./waste/waste.js')
 
 app.use('/cities', cities); 
 app.use('/associations', associations);
