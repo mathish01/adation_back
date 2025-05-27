@@ -9,16 +9,16 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 
 // TEST-camille
 
-const cities = require('./Cities/cities.js'); 
-const associations = require('./Assiociations/associations.js');
-const volunteers = require('./Volunteers/volunteers.js');
-const wasteTypes = require('./Waste_types/waste.js')
+const cities = require('/cities/cities.js'); 
+const associations = require('/associations/associations.js');
+const volunteers = require('/volunteers/volunteers.js');
+const wasteTypes = require('/waste/waste.js')
 
-app.use('/Cities', cities); 
-app.use('/Associations', associations);
-app.use('/Volunteers', volunteers);
-app.use('/Waste_types', wasteTypes); 
-
+app.use('/cities', cities); 
+app.use('/associations', associations);
+app.use('/volunteers', volunteers);
+app.use('/waste', wasteTypes); 
+ 
  
 const port = process.env.PORT || 3001; 
 
@@ -27,3 +27,4 @@ app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 
 })
+

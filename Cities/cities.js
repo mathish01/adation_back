@@ -1,10 +1,8 @@
 const express = require('express')
 const app = express()
 
-app.use(express.json()) // for parsing application/json
-app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
-const port = 3001
+
 
 const data = 
 
@@ -96,4 +94,4 @@ const data =
 ]
 
 
-
+module.exports = app;

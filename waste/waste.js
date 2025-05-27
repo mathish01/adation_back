@@ -1,0 +1,48 @@
+const express = require('express')
+const app = express()
+
+
+const wasteType =
+     [
+    {
+      "value": "cigarette",
+      "label": ":fumeur: Mégots de cigarette",
+      "className": "badge-cigarette"
+    },
+    {
+      "value": "plastic",
+      "label": ":verre_avec_paille: Plastique",
+      "className": "badge-plastic"
+    },
+    {
+      "value": "glass",
+      "label": ":saké: Verre",
+      "className": "badge-glass"
+    },
+    {
+      "value": "metal",
+      "label": ":boîte_de_conserve: Métal",
+      "className": "badge-metal"
+    },
+    {
+      "value": "electronic",
+      "label": ":iphone: Électronique",
+      "className": "badge-electronic"
+    },
+    {
+      "value": "other",
+      "label": " Autre",
+      "className": "badge-other",
+      "quantity": 0
+    }
+  ]
+app.get('/waste', (req, res) => {
+    res.send(wasteType);
+});
+
+
+module.exports = app;
+
+
+
+
