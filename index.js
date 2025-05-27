@@ -19,10 +19,11 @@ app.use('/Associations', associations);
 app.use('/Volunteers', volunteers);
 app.use('/Waste_types', wasteTypes); 
 
-const hostname = '127.0.0.1'; 
+ 
 const port = process.env.PORT || 3001; 
 
-app.listen(port, hostname, () => {
-	console.log(`Serveur démarré sur http://${hostname}:${port}`);
-});
 
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+
+})
