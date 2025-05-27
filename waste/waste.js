@@ -1,5 +1,6 @@
 const express = require('express')
-const app = express()
+const router = express.Router()
+
 
 
 const wasteType =
@@ -36,12 +37,12 @@ const wasteType =
       "quantity": 0
     }
   ]
-app.get('/waste', (req, res) => {
-    res.send(wasteType);
+router.get('/', (req, res) => {
+    res.send(wasteType[0]);
 });
 
 
-module.exports = app;
+module.exports = router;
 
 
 

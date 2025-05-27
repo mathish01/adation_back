@@ -1,5 +1,5 @@
 const express = require('express');
-const app = express();
+const router = express.Router()
 
 
 
@@ -69,9 +69,9 @@ const database =
 
 
 
-app.get('/volunteers', (req, res) => {
-    res.send(database.volunteers)
+router.get('/', (req, res) => {
+    res.send(database[0])
 })
 
 
-module.exports = app;
+module.exports = router;

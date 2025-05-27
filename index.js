@@ -9,15 +9,15 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 
 // TEST-camille
 
-const cities = require('./cities/cities.js'); 
-const associations = require('./associations/associations.js');
-const volunteers = require('./volunteers/volunteers.js');
-const wasteTypes = require('./waste/waste.js')
+const citiesRoute = require('./cities/cities.js'); 
+const associationsRoute = require('./associations/associations.js');
+const volunteersRoute = require('./volunteers/volunteers.js');
+const wasteTypesRoute = require('./waste/waste.js')
 
-app.use('/cities', cities); 
-app.use('/associations', associations);
-app.use('/volunteers', volunteers);
-app.use('/waste', wasteTypes); 
+app.use('/cities', citiesRoute); 
+app.use('/associations', associationsRoute);
+app.use('/volunteers', volunteersRoute);
+app.use('/waste', wasteTypesRoute); 
  
  
 const port = process.env.PORT || 3001; 

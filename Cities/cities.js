@@ -1,5 +1,6 @@
 const express = require('express')
-const app = express()
+const router = express.Router()
+
 
 
 
@@ -94,4 +95,9 @@ const data =
 ]
 
 
-module.exports = app;
+router.get('/', (req, res) => {
+    res.send(data[0])
+})
+
+
+module.exports = router;
