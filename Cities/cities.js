@@ -99,5 +99,22 @@ router.get('/', (req, res) => {
     res.send(data[0])
 })
 
+const cities = data[0].cities; 
+
+router.get('/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const city = cities.find(city => city.id === id);
+  
+  if (city) {
+    res.send(city);
+  } else {
+    res.status(404).send('Ville non trouvée');
+  }
+})
+
+
+
+
+
 
 module.exports = router;
