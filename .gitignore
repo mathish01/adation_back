@@ -1,3 +1,4 @@
 .env
-nodes_modules/ 
+nodes_modules/
+datajson/  
 
