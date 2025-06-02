@@ -1,12 +1,14 @@
 const express = require('express');
-const router = express.Router()
-
-
+const router = express.Router(); 
+const pool = require('../database');   
 
 router.get('/', async (req, res) => {
-    await req.body.query('SELECT * FROM volunteers')
-    .then(result => res.json(result.rows))
-    .catch(err => res.status(500).json({ erreur: err.message}));
+    try {
+        const result = await pool.query('SELECT * FROM volunteers');
+        res.json(result.rows); 
+    } catch (err) {
+        res.status(500).json({ erreur: err.message});
+    } 
 }); 
 
 
