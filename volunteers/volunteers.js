@@ -1,77 +1,17 @@
 const express = require('express');
-const router = express.Router()
+const router = express.Router(); 
+const pool = require('../database');   
+
+router.get('/', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM volunteers');
+        res.json(result.rows); 
+    } catch (err) {
+        res.status(500).json({ erreur: err.message});
+    } 
+}); 
 
 
-
-const database =
- [
-     {
-         "id": 1,
-         "firstname": "Monica",
-         "lastname": "Geller",
-         "email": "monica.geller@test.fr",
-         "password": "test1234",
-         "location": "Paris",
-         "created_at": "2025-05-25",
-         "updated_at": "2025-05-25"
-        },
-        {
-            "id": 2,
-            "firstname": "Rachel",
-            "lastname": "Green",
-            "email": "rachel.green@test.fr",
-            "password": "test1234",
-            "location": "Paris",
-            "created_at": "2025-05-25",
-            "updated_at": "2025-05-25"
-        },
-        {
-            "id": 3,
-            "firstname": "Phoebe",
-            "lastname": "Buffay",
-            "email": "phoebe.buffay@test.fr",
-            "password": "test1234",
-            "location": "Nantes",
-            "created_at": "2025-05-25",
-            "updated_at": "2025-05-25"
-        },
-        {
-            "id": 4,
-      "firstname": "Joey",
-      "lastname": "Tribbiani",
-      "email": "joey.tribbiani@test.fr",
-      "password": "test1234",
-      "location": "Nantes",
-      "created_at": "2025-05-25",
-      "updated_at": "2025-05-25"
-    },
-    {
-        "id": 5,
-        "firstname": "Chandler",
-        "lastname": "Bing",
-        "email": "chandler.bing@test.fr",
-        "password": "test1234",
-      "location": "Paris",
-      "created_at": "2025-05-25",
-      "updated_at": "2025-05-25"
-    },
-    {
-        "id": 6,
-        "firstname": "Ross",
-        "lastname": "Geller",
-        "email": "ross.geller@test.fr",
-        "password": "test1234",
-        "location": "Lyon",
-        "created_at": "2025-05-25",
-        "updated_at": "2025-05-25"
-    }
-]
-
-
-
-router.get('/', (req, res) => {
-    res.send(database[0])
-})
 
 
 module.exports = router;
