@@ -2,14 +2,16 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true
+}))
+
+
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 
-
-
-
-// TEST-camille
 
 const citiesRoute = require('./cities/cities.js'); 
 const associationsRoute = require('./associations/associations.js');
@@ -24,13 +26,9 @@ app.use('/waste', wasteTypesRoute);
 
 const port = process.env.PORT || 3001; 
 
-app.use(cors({
-    origin: 'http://localhost:3000',
-    credentials: true
-}))
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
-
+  
 })
 
