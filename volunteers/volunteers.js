@@ -11,6 +11,26 @@ router.get('/', async (req, res) => {
     } 
 }); 
 
+router.post('/', async (req, res) => {
+    try {
+        const firstname = req.body.firstname;
+        const lastname = req.body.lastname; 
+        const mail = req.body.mail; 
+        const password = req.body.password; 
+        const location = req.body.location;
+        const city_id = req.body.city_id;
+        const waste_type = req.body.waste_type; 
+
+        const result = await pool.query(
+            'INSERT INTO volunteers (firstname, lastname, mail, password, location, city_id, waste_type) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING*', 
+            [firstname, lastname, mail, password, location, city_id, waste_type]
+        ); 
+
+        res.json(result.rows[0]);
+    } catch (err) {
+        res.status(500).json({erreur: err.message});
+    }
+}); 
  
 
 
