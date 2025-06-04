@@ -47,7 +47,37 @@ router.delete('/:id', async (req, res) => {
     }
 }); 
 
+router.put('/:id', async (req, res) => {
+    try {
+        const id = req.params.id; 
+        
+        const {
+            firstname,
+            lastname,
+            mail,
+            password,
+            location,
+            city_id,
+            wasted_type 
+        } = req.body; 
 
+        const result = await pool.query(
+            `UPDATE volunteers
+             SET firstname = $1, lastname = $2, mail = $3, password = $4, location = $5, city_id = $6, waste_type = $7
+             WHERE id = $8
+             RETURNING * `
+             [firstname, lastname, mail, password, location, city_id, wasted_type, id]
+        ); 
+
+        if(result.rows.length === 0) {
+            return res.status(404).json({erreur: 'Bénévole non trouvé'});
+        } 
+
+        res.json(result.rows[0]);
+    } catch (err) {
+        res.status(500).json({ erreur: err.message});
+    }
+}); 
 
 
 
