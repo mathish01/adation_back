@@ -32,6 +32,22 @@ router.post('/', async (req, res) => {
     }
 }); 
  
+router.delete('/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+
+        const result = await pool.query(
+            'DELETE FROM volunteers WHERE id = $1 RETURNING *',
+            [id]
+        );
+
+        res.json(result.rows[0]);
+    } catch (err) {
+        res.status(500).json({erreur: err.message});
+    }
+}); 
+
+
 
 
 

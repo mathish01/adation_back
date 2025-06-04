@@ -23,7 +23,7 @@ app.use('/api/cities', citiesRoute);
 app.use('/api/associations', associationsRoute);
 app.use('/api/volunteers', volunteersRoute);
 app.use('/api/waste', wasteTypesRoute); 
-
+// app.use('/api/volunteers/id', volunteersRoute); 
 
 const port = process.env.PORT || 3001; 
 
