@@ -8,6 +8,7 @@ app.use(cors({
 }))
 
 
+ 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
@@ -18,10 +19,10 @@ const associationsRoute = require('./associations/associations.js');
 const volunteersRoute = require('./volunteers/volunteers.js');
 const wasteTypesRoute = require('./waste/waste.js')
 
-app.use('/cities', citiesRoute); 
-app.use('/associations', associationsRoute);
+app.use('/api/cities', citiesRoute); 
+app.use('/api/associations', associationsRoute);
 app.use('/api/volunteers', volunteersRoute);
-app.use('/waste', wasteTypesRoute); 
+app.use('/api/waste', wasteTypesRoute); 
 
 
 const port = process.env.PORT || 3001; 
