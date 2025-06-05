@@ -71,7 +71,7 @@ router.put('/:id', async (req, res) => {
             `UPDATE volunteers
              SET firstname = $1, lastname = $2, mail = $3, password = $4, location = $5, city_id = $6, waste_type = $7
              WHERE id = $8
-             RETURNING * `
+             RETURNING *`,
              [firstname, lastname, mail, password, location, city_id, wasted_type, id]
         ); 
 
