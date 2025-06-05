@@ -87,4 +87,23 @@ router.put('/:id', async (req, res) => {
 
 
 
+router.get('/search', async (req, res) => {
+    try {
+        const { query } = req.query;
+
+        const result = await pool.query(
+            `SELECT * FROM volunteers 
+             WHERE firstname ILIKE $1
+             OR lastname ILIKE $1
+             OR mail ILIKE $1`,
+             [`%${query}%`]  // % = wildcard e, SQL est utilisé avec ILKIE pour matcher n'importe quelle suite de caractères. 
+        );
+        
+        res.json(result.rows);
+    } catch (err) {
+        res.status(500).json({ erreur: err.message}); 
+    }
+}); 
+
+// http://localhost:3001/api/volunteers/search?query=Geller 
 module.exports = router;
