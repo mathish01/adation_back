@@ -11,6 +11,8 @@ router.get('/', async (req, res) => {
     } 
 }); 
 
+
+
 router.post('/', async (req, res) => {
     try {
         const firstname = req.body.firstname;
@@ -18,12 +20,12 @@ router.post('/', async (req, res) => {
         const mail = req.body.mail; 
         const password = req.body.password; 
         const location = req.body.location;
-        const city_id = req.body.city_id;
-        const waste_type = req.body.waste_type; 
+        // const city_id = req.body.city_id;
+        // const waste_type = req.body.waste_type; 
 
         const result = await pool.query(
-            'INSERT INTO volunteers (firstname, lastname, mail, password, location, city_id, waste_type) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING*', 
-            [firstname, lastname, mail, password, location, city_id, waste_type]
+            'INSERT INTO volunteers (firstname, lastname, mail, password, location) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING*', 
+            [firstname, lastname, mail, password, location]
         ); 
 
         res.json(result.rows[0]);
@@ -32,6 +34,8 @@ router.post('/', async (req, res) => {
     }
 }); 
  
+
+
 router.delete('/:id', async (req, res) => {
     try {
         const id = req.params.id;
@@ -46,6 +50,8 @@ router.delete('/:id', async (req, res) => {
         res.status(500).json({erreur: err.message});
     }
 }); 
+
+
 
 router.put('/:id', async (req, res) => {
     try {
