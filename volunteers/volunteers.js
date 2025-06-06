@@ -67,7 +67,7 @@ router.put('/:id', async (req, res) => {
 
         const result = await pool.query(
             `UPDATE volunteers
-             SET firstname = $1, lastname = $2, mail = $3, password = $4, location = $5,
+             SET firstname = $1, lastname = $2, mail = $3, password = $4, location = $5
              WHERE id = $6
              RETURNING *`,
              [firstname, lastname, mail, password, location, id]
