@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
         // const waste_type = req.body.waste_type; 
 
         const result = await pool.query(
-            'INSERT INTO volunteers (firstname, lastname, mail, password, location) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING*', 
+            'INSERT INTO volunteers (firstname, lastname, mail, password, location) VALUES ($1, $2, $3, $4, $5) RETURNING*', 
             [firstname, lastname, mail, password, location]
         ); 
 
@@ -63,16 +63,14 @@ router.put('/:id', async (req, res) => {
             mail,
             password,
             location,
-            city_id,
-            wasted_type 
         } = req.body; 
 
         const result = await pool.query(
             `UPDATE volunteers
-             SET firstname = $1, lastname = $2, mail = $3, password = $4, location = $5, city_id = $6, waste_type = $7
-             WHERE id = $8
+             SET firstname = $1, lastname = $2, mail = $3, password = $4, location = $5,
+             WHERE id = $6
              RETURNING *`,
-             [firstname, lastname, mail, password, location, city_id, wasted_type, id]
+             [firstname, lastname, mail, password, location, id]
         ); 
 
         if(result.rows.length === 0) {
