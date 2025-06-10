@@ -21,7 +21,7 @@ const wasteTypesRoute = require('./waste/waste.js')
 app.use('/cities', citiesRoute); 
 app.use('/associations', associationsRoute);
 app.use('/api/volunteers', volunteersRoute);
-app.use('/waste', wasteTypesRoute); 
+app.use('/api/waste', wasteTypesRoute); 
 
 
 const port = process.env.PORT || 3001; 
