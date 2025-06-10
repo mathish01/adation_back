@@ -5,6 +5,7 @@ const pool = require('../database');
 router.get('/', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM volunteers');
+        console.log(result)
         res.json(result.rows); 
     } catch (err) {
         res.status(500).json({ erreur: err.message});

@@ -17,11 +17,13 @@ const citiesRoute = require('./cities/cities.js');
 const associationsRoute = require('./associations/associations.js');
 const volunteersRoute = require('./volunteers/volunteers.js');
 const wasteTypesRoute = require('./waste/waste.js')
+const loginRoute = require('./login/login.js')
 
 app.use('/cities', citiesRoute); 
 app.use('/associations', associationsRoute);
 app.use('/api/volunteers', volunteersRoute);
 app.use('/waste', wasteTypesRoute); 
+app.use('/login', loginRoute)
 
 
 const port = process.env.PORT || 3001; 
