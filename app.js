@@ -25,15 +25,12 @@ app.use('/api/cities', citiesRoute);
 app.use('/api/associations', associationsRoute);
 app.use('/api/volunteers', volunteersRoute);
 app.use('/api/waste', wasteTypesRoute); 
-<<<<<<< HEAD
-// app.use('/api/volunteers/id', volunteersRoute); 
-=======
 app.use('/api/auth', authRoute);
 
->>>>>>> authentification
 
 const port = process.env.PORT || 3001; 
 
+// ok
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
