@@ -24,7 +24,7 @@ const authRoute = require('./authentification/auth.js');
 app.use('/api/cities', citiesRoute); 
 app.use('/api/associations', associationsRoute);
 app.use('/api/volunteers', volunteersRoute);
-app.use('/api/waste', wasteTypesRoute); 
+app.use('/api/api/waste', wasteTypesRoute); 
 app.use('/api/auth', authRoute);
 
 
